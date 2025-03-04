@@ -2,11 +2,11 @@ import { create } from "zustand";
 import axios from "axios";
 
 interface AuthStore {
-  user: { name: string; email: string } | null;
+  user: { id: string, email: string } | null;
   token: string | null;
   isAuthenticated: boolean;
   login: (email: string, password: string) => Promise<void>;
-  signup: (name: string, email: string, password: string) => Promise<void>;
+  signup: (email: string, password: string) => Promise<void>;
   logout: () => void;
   refreshToken: () => Promise<void>;
 }
@@ -27,10 +27,10 @@ export const useAuthStore = create<AuthStore>((set) => ({
         const { token } = response.data;
 
         sessionStorage.setItem("token", token);
-        sessionStorage.setItem("user", JSON.stringify({ name: response.data.firstName, email }));
+        sessionStorage.setItem("user", JSON.stringify({ id: response.data.id, email }));
 
         set({
-          user: { name: response.data.firstName, email },
+          user: { id: response.data.id, email },
           token,
           isAuthenticated: true,
         });
@@ -42,11 +42,11 @@ export const useAuthStore = create<AuthStore>((set) => ({
     }
   },
 
-  signup: async (name, email, password) => {
+  signup: async (email, password) => {
     try {
       const response = await axios.post(
         "http://localhost:3000/api/auth/signup",
-        { firstName: name, email, password },
+        { email, password },
         { headers: { "Content-Type": "application/json" }, withCredentials: true }
       );
 
@@ -54,10 +54,10 @@ export const useAuthStore = create<AuthStore>((set) => ({
         const { token } = response.data;
 
         sessionStorage.setItem("token", token);
-        sessionStorage.setItem("user", JSON.stringify({ name, email }));
+        sessionStorage.setItem("user", JSON.stringify({ id: response.data.id,  email }));
 
         set({
-          user: { name, email },
+          user: { id: response.data.id, email },
           token,
           isAuthenticated: true,
         });

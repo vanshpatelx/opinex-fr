@@ -1,0 +1,2 @@
+- Implment SignUp/login
+- Build Event Page => Includes Event Details, WS Connection, Trade Meni

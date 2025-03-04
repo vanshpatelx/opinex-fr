@@ -1,29 +1,31 @@
-// // import { useState } from 'react'
-// // import { Button } from "@/components/ui/button"
+// import { useState } from 'react'
+// import { Button } from "@/components/ui/button"
 
-import WebsitePreviewAndLive from "./components/preview/live"
+// import WebsitePreviewAndLive from "./components/preview/live"
 
-// import './App.css'
+import './App.css'
 // import { Component } from './components/auth/form'
 // import { AuthTabs } from './components/auth/full'
-// // import { TabsDemo } from "./components/event/trade"
-// // import PriceInput from "./components/event/priceInput"
+import { OrderBook } from './components/event/orderbook'
+// import { TabsDemo } from "./components/event/trade"
+// import PriceInput from "./components/event/priceInput"
 
-// function App() {
+function App() {
 
-//   return (
-//     <div className="flex flex-col items-center justify-center min-h-svh">
-//       {/* <Button>Click me</Button>
-//       <TabsDemo />
-//       <PriceInput/> */}
-//       <Component/>
-//       <AuthTabs/>
-//     </div>
+  return (
+    <div className="flex flex-col items-center justify-center min-h-svh">
+      {/* <Button>Click me</Button>
+      <TabsDemo />
+      <PriceInput/> */}
+      {/* <Component/> */}
+      {/* <AuthTabs/> */}
+      <OrderBook/>
+    </div>
 
-//   )
-// }
+  )
+}
 
-// export default App
+export default App
 
 
 
@@ -58,12 +60,12 @@ import WebsitePreviewAndLive from "./components/preview/live"
 // export default App;
 
 
-function App() {
-  return (
-    <div>
-      <WebsitePreviewAndLive/>
-    </div>
-  )
-}
+// function App() {
+//   return (
+//     <div>
+{/* <WebsitePreviewAndLive/> */}
+//     </div>
+//   )
+// }
 
-export default App
+// export default App

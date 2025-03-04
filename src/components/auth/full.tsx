@@ -51,12 +51,11 @@ function AuthTabs() {
     setError(null);
 
     const formData = new FormData(e.currentTarget);
-    const name = formData.get("name") as string;
     const email = formData.get("email") as string;
     const password = formData.get("password") as string;
 
     try {
-      await signup(name, email, password);
+      await signup(email, password);
       setIsDialogOpen(false);
     } catch (err) {
       setError("Signup failed. Please try again."); 
@@ -91,12 +90,35 @@ function AuthTabs() {
           <Button variant="outline">Sign up</Button>
         </DialogTrigger>
         <DialogContent className="max-w-md w-full">
-          <DialogHeader>
+          {/* <DialogHeader>
             <DialogTitle>Welcome to Origin UI</DialogTitle>
             <DialogDescription>
               We just need a few details to get you started.
             </DialogDescription>
+          </DialogHeader> */}
+                  <div className="flex flex-col items-center gap-2">
+          <div
+            className="flex size-11 shrink-0 items-center justify-center rounded-full border border-border"
+            aria-hidden="true"
+          >
+            <svg
+              className="stroke-zinc-800 dark:stroke-zinc-100"
+              xmlns="http://www.w3.org/2000/svg"
+              width="20"
+              height="20"
+              viewBox="0 0 32 32"
+              aria-hidden="true"
+            >
+              <circle cx="16" cy="16" r="12" fill="none" strokeWidth="8" />
+            </svg>
+          </div>
+          <DialogHeader>
+            <DialogTitle className="sm:text-center">Opinex</DialogTitle>
+            <DialogDescription className="sm:text-center">
+              We just need a few details to get you started.
+            </DialogDescription>
           </DialogHeader>
+        </div>
 
           {error && <AlertDestructive message={error} />} {/* Display error message */}
 
@@ -109,8 +131,6 @@ function AuthTabs() {
             <TabsContent value="signup">
               <form className="space-y-5" onSubmit={handleSignup}>
                 <div className="space-y-4">
-                  <Label htmlFor={`${id}-name`}>Full name</Label>
-                  <Input id={`${id}-name`} name="name" placeholder="John Doe" type="text" required />
                   <Label htmlFor={`${id}-email`}>Email</Label>
                   <Input id={`${id}-email`} name="email" placeholder="you@example.com" type="email" required />
                   <Label htmlFor={`${id}-password`}>Password</Label>
