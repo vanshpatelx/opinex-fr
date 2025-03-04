@@ -1,4 +1,174 @@
-import { Button } from "@/components/ui/button"
+// import { Button } from "@/components/ui/button"
+// import {
+//   Card,
+//   CardContent,
+//   CardDescription,
+//   CardFooter,
+//   CardHeader,
+//   CardTitle,
+// } from "@/components/ui/card"
+// import {
+//   Tabs,
+//   TabsContent,
+//   TabsList,
+//   TabsTrigger,
+// } from "@/components/ui/tabs"
+// import PriceInput from "./priceInput"
+
+// export function trade() {
+//   return (
+//     <Tabs defaultValue="yes" className="w-[400px]">
+//       <TabsList className="grid w-full grid-cols-2">
+//         <TabsTrigger value="yes">Yes</TabsTrigger>
+//         <TabsTrigger value="no">No</TabsTrigger>
+//       </TabsList>
+//       <TabsContent value="yes">
+//         <Card>
+//           <CardHeader>
+//             <CardTitle>Yes Order</CardTitle>
+//             <CardDescription>
+//               Let's bet with Yes...
+//             </CardDescription>
+//           </CardHeader>
+//           <CardContent className="space-y-2">
+//             <div className="flex flex-row items-center justify-between w-full">
+//               <label className="font-bold">Price:</label>
+//               <PriceInput maxLimit={10} step={0.5} minLimit={0.5} decimalPlaces={1} />
+//             </div>
+//             <div className="flex flex-row items-center justify-between w-full">
+//               <label className="font-bold">Quantity:</label>
+//               <PriceInput maxLimit={100} step={1} minLimit={1} />
+//             </div>
+//           </CardContent>
+//           <CardFooter>
+//             <div className="flex flex-row items-center justify-between w-full gap-2">
+//               <Button className="w-1/2" variant="bullish">Buy </Button>
+//               <Button className="w-1/2" variant="bearish">Sell</Button>
+//             </div>
+//           </CardFooter>
+//         </Card>
+//       </TabsContent>
+//       <TabsContent value="no">
+//         <Card>
+//           <CardHeader>
+//             <CardTitle>No Order</CardTitle>
+//             <CardDescription>
+//               Let's bet with No...
+//             </CardDescription>
+//           </CardHeader>
+//           <CardContent className="space-y-2">
+//             <div className="flex flex-row items-center justify-between w-full">
+//               <label className="font-bold">Price:</label>
+//               <PriceInput maxLimit={10} step={0.5} minLimit={0.5} decimalPlaces={1} />
+//             </div>
+//             <div className="flex flex-row items-center justify-between w-full">
+//               <label className="font-bold">Quantity:</label>
+//               <PriceInput maxLimit={100} step={1} minLimit={1} />
+//             </div>
+//           </CardContent>
+//           <CardFooter>
+//             <div className="flex flex-row items-center justify-between w-full gap-2">
+//               <Button className="w-1/2" variant="bullish">Buy </Button>
+//               <Button className="w-1/2" variant="bearish">Sell</Button>
+//             </div>
+//           </CardFooter>
+//         </Card>
+//       </TabsContent>
+//     </Tabs>
+//   )
+// }
+
+
+// import { useState } from "react";
+// import { Button } from "@/components/ui/button";
+// import {
+//   Card,
+//   CardContent,
+//   CardDescription,
+//   CardFooter,
+//   CardHeader,
+//   CardTitle,
+// } from "@/components/ui/card";
+// import {
+//   Tabs,
+//   TabsContent,
+//   TabsList,
+//   TabsTrigger,
+// } from "@/components/ui/tabs";
+// import PriceInput from "./PriceInput";
+// import useTradeStore from "./store/tradeStore";
+
+// export function Trade() {
+//   const { placeOrder } = useTradeStore();
+//   const [price, setPrice] = useState(5);
+//   const [quantity, setQuantity] = useState(10);
+
+//   const handleTrade = (type: "buy" | "sell", option: "yes" | "no") => {
+//     placeOrder(type, option, price, quantity);
+//   };
+
+//   return (
+//     <Tabs defaultValue="yes" className="w-[400px]">
+//       <TabsList className="grid w-full grid-cols-2">
+//         <TabsTrigger value="yes">Yes</TabsTrigger>
+//         <TabsTrigger value="no">No</TabsTrigger>
+//       </TabsList>
+//       {["yes", "no"].map((option) => (
+//         <TabsContent key={option} value={option}>
+//           <Card>
+//             <CardHeader>
+//               <CardTitle>{option.charAt(0).toUpperCase() + option.slice(1)} Order</CardTitle>
+//               <CardDescription>Let's bet with {option}...</CardDescription>
+//             </CardHeader>
+//             <CardContent className="space-y-2">
+//               <div className="flex flex-row items-center justify-between w-full">
+//                 <label className="font-bold">Price:</label>
+//                 <PriceInput
+//                   maxLimit={10}
+//                   step={0.5}
+//                   minLimit={0.5}
+//                   decimalPlaces={1}
+//                   onChange={setPrice}
+//                 />
+//               </div>
+//               <div className="flex flex-row items-center justify-between w-full">
+//                 <label className="font-bold">Quantity:</label>
+//                 <PriceInput
+//                   maxLimit={100}
+//                   step={1}
+//                   minLimit={1}
+//                   onChange={setQuantity}
+//                 />
+//               </div>
+//             </CardContent>
+//             <CardFooter>
+//               <div className="flex flex-row items-center justify-between w-full gap-2">
+//                 <Button
+//                   className="w-1/2"
+//                   variant="bullish"
+//                   onClick={() => handleTrade("buy", option as "yes" | "no")}
+//                 >
+//                   Buy
+//                 </Button>
+//                 <Button
+//                   className="w-1/2"
+//                   variant="bearish"
+//                   onClick={() => handleTrade("sell", option as "yes" | "no")}
+//                 >
+//                   Sell
+//                 </Button>
+//               </div>
+//             </CardFooter>
+//           </Card>
+//         </TabsContent>
+//       ))}
+//     </Tabs>
+//   );
+// }
+
+
+import { useState } from "react";
+import { Button } from "@/components/ui/button";
 import {
   Card,
   CardContent,
@@ -6,69 +176,86 @@ import {
   CardFooter,
   CardHeader,
   CardTitle,
-} from "@/components/ui/card"
-import { Input } from "@/components/ui/input"
-import { Label } from "@/components/ui/label"
+} from "@/components/ui/card";
 import {
   Tabs,
   TabsContent,
   TabsList,
   TabsTrigger,
-} from "@/components/ui/tabs"
+} from "@/components/ui/tabs";
+import PriceInput from "./priceInput";
+import useTradeStore from "../../store/useTradeStore";
 
-export function TabsDemo() {
+export function Trade() {
+  const {placeOrder} = useTradeStore();
+  const [price, setPrice] = useState(5);
+  const [quantity, setQuantity] = useState(10);
+
+  const handleTrade = (type: "buy" | "sell", option: "yes" | "no") => {
+    console.log(type, option, price, quantity);
+    placeOrder(type, option, price, quantity);
+  };
+
   return (
-    <Tabs defaultValue="account" className="w-[400px]">
+    <Tabs defaultValue="yes" className="w-[400px]">
       <TabsList className="grid w-full grid-cols-2">
-        <TabsTrigger value="buy">Buy</TabsTrigger>
-        <TabsTrigger value="sell">Sell</TabsTrigger>
+        <TabsTrigger value="yes">Yes</TabsTrigger>
+        <TabsTrigger value="no">No</TabsTrigger>
       </TabsList>
-      <TabsContent value="buy">
-        <Card>
-          <CardHeader>
-            <CardTitle>Account</CardTitle>
-            <CardDescription>
-              Make changes to your account here. Click save when you're done.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="name">Name</Label>
-              <Input id="name" defaultValue="Pedro Duarte" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="username">Username</Label>
-              <Input id="username" defaultValue="@peduarte" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save changes</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
-      <TabsContent value="sell">
-        <Card>
-          <CardHeader>
-            <CardTitle>Password</CardTitle>
-            <CardDescription>
-              Change your password here. After saving, you'll be logged out.
-            </CardDescription>
-          </CardHeader>
-          <CardContent className="space-y-2">
-            <div className="space-y-1">
-              <Label htmlFor="current">Current password</Label>
-              <Input id="current" type="password" />
-            </div>
-            <div className="space-y-1">
-              <Label htmlFor="new">New password</Label>
-              <Input id="new" type="password" />
-            </div>
-          </CardContent>
-          <CardFooter>
-            <Button>Save password</Button>
-          </CardFooter>
-        </Card>
-      </TabsContent>
+      {["yes", "no"].map((option) => (
+        <TabsContent key={option} value={option}>
+          <Card>
+            <CardHeader>
+              <CardTitle>{option.charAt(0).toUpperCase() + option.slice(1)} Order</CardTitle>
+              <CardDescription>Let's bet with {option}...</CardDescription>
+            </CardHeader>
+            <CardContent className="space-y-2">
+              <div className="flex flex-row items-center justify-between w-full">
+                <label className="font-bold">Price:</label>
+                <PriceInput
+                  maxLimit={10}
+                  step={0.5}
+                  minLimit={0.5}
+                  decimalPlaces={1}
+                  value={price} 
+                  onChange={setPrice}
+                />
+              </div>
+              <div className="flex flex-row items-center justify-between w-full">
+                <label className="font-bold">Quantity:</label>
+                <PriceInput
+                  maxLimit={100}
+                  step={1}
+                  minLimit={1}
+                  value={quantity} 
+                  onChange={setQuantity}
+                />
+              </div>
+            </CardContent>
+            <CardFooter>
+              <div className="flex flex-row items-center justify-between w-full gap-2">
+                <Button
+                  className="w-1/2"
+                  variant="bullish"
+                  onClick={() => handleTrade("buy", option as "yes" | "no")}
+                >
+                  Buy
+                </Button>
+                <Button
+                  className="w-1/2"
+                  variant="bearish"
+                  onClick={() => handleTrade("sell", option as "yes" | "no")}
+                >
+                  Sell
+                </Button>
+              </div>
+            </CardFooter>
+          </Card>
+        </TabsContent>
+      ))}
     </Tabs>
-  )
+  );
 }
+
+
+export default Trade;

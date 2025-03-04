@@ -4,9 +4,10 @@
 // import WebsitePreviewAndLive from "./components/preview/live"
 
 import './App.css'
+import { Trade } from './components/event/trade'
 // import { Component } from './components/auth/form'
 // import { AuthTabs } from './components/auth/full'
-import { OrderBook } from './components/event/orderbook'
+// import { OrderBook } from './components/event/orderbook'
 // import { TabsDemo } from "./components/event/trade"
 // import PriceInput from "./components/event/priceInput"
 
@@ -19,7 +20,8 @@ function App() {
       <PriceInput/> */}
       {/* <Component/> */}
       {/* <AuthTabs/> */}
-      <OrderBook/>
+      {/* <OrderBook/> */}
+      <Trade />
     </div>
 
   )

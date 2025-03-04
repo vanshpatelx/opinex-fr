@@ -19,6 +19,12 @@ const buttonVariants = cva(
           "bg-secondary text-secondary-foreground shadow-xs hover:bg-secondary/80",
         ghost: "hover:bg-accent hover:text-accent-foreground",
         link: "text-primary underline-offset-4 hover:underline",
+        // New Stock Market Related Variants
+        bullish:
+          "bg-blue-500 text-white shadow-xs hover:bg-blue-600 focus-visible:ring-blue-300 dark:focus-visible:ring-blue-700",
+        bearish:
+          "bg-[#eb4034] text-white shadow-xs hover:bg-[#d92014] focus-visible:ring-orange-400 dark:focus-visible:ring-orange-600",
+        
       },
       size: {
         default: "h-9 px-4 py-2 has-[>svg]:px-3",
