@@ -4,7 +4,8 @@
 // import WebsitePreviewAndLive from "./components/preview/live"
 
 import './App.css'
-import { Trade } from './components/event/trade'
+// import { Trade } from './components/event/trade'
+import EventPage from './pages/event'
 // import { Component } from './components/auth/form'
 // import { AuthTabs } from './components/auth/full'
 // import { OrderBook } from './components/event/orderbook'
@@ -21,7 +22,8 @@ function App() {
       {/* <Component/> */}
       {/* <AuthTabs/> */}
       {/* <OrderBook/> */}
-      <Trade />
+      {/* <Trade /> */}
+      <EventPage/>
     </div>
 
   )

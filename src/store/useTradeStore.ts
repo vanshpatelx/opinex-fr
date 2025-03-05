@@ -1,22 +1,15 @@
 import { create } from "zustand";
 import axios from "axios";
 
-const useTradeStore = create((set) => ({
-  orders: [],
-  placeOrder: async (type: string, option: string, price: number, quantity: number) => {
+interface TradeState {
+  placeOrder: (type: string, option: string, price: number, quantity: number) => Promise<void>;
+}
+
+const useTradeStore = create<TradeState>(() => ({
+  placeOrder: async (type, option, price, quantity) => {
     try {
-      console.log("hello", type, option, price, quantity);
-      const response = await axios.post("/api/trade", {
-        type,
-        option,
-        price,
-        quantity,
-      });
-      set((state) => {
-        const newOrders = [...state.orders, response.data];
-        console.log("New orders:", newOrders);  // ✅ Debugging state update
-        return { orders: newOrders };
-      });
+      console.log("Placing order:", { type, option, price, quantity });
+      await axios.post("/api/trade", { type, option, price, quantity });
     } catch (error) {
       console.error("Error placing order", error);
     }
